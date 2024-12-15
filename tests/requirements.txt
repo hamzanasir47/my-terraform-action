@@ -1,0 +1,8 @@
+requests
+requests-cache
+pytest
+python-hcl2
+canonicaljson
+types-requests
+mypy
+flake8
