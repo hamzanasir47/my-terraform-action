@@ -1,4 +1,4 @@
-FROM danielflook/terraform-github-actions-base:latest
+FROM hamza47/terraform-github-actions-base:1.0
 
 ARG TARGETARCH
 
