@@ -47,6 +47,7 @@ COPY tools/workspace_exists.py /usr/local/bin/workspace_exists
 COPY tools/compact_plan.py /usr/local/bin/compact_plan
 COPY tools/format_tf_credentials.py /usr/local/bin/format_tf_credentials
 COPY tools/github_comment_react.py /usr/local/bin/github_comment_react
+RUN chmod +x /usr/local/bin/convert_validate_report /usr/local/bin/convert_output /usr/local/bin/convert_version /usr/local/bin/workspace_exists /usr/local/bin/compact_plan /usr/local/bin/format_tf_credentials /usr/local/bin/github_comment_react
 
 RUN echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config \
  && echo "IdentityFile /.ssh/id_rsa" >> /etc/ssh/ssh_config \
