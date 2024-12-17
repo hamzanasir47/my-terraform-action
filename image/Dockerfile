@@ -34,8 +34,11 @@ RUN if [ "$TARGETARCH" = "arm64" ]; then \
 fi
 
 COPY entrypoints/ /entrypoints/
+RUN chmod +x /entrypoints/*.sh
+
 COPY actions.sh /usr/local/actions.sh
 COPY workflow_commands.sh /usr/local/workflow_commands.sh
+RUN chmod +x /usr/local/actions.sh /usr/local/workflow_commands.sh
 
 COPY tools/convert_validate_report.py /usr/local/bin/convert_validate_report
 COPY tools/convert_output.py /usr/local/bin/convert_output
