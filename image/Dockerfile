@@ -1,4 +1,4 @@
-FROM hamza47/terraform-github-actions-base:1.0
+FROM hamza47/tf-base:1.0
 
 ARG TARGETARCH
 
