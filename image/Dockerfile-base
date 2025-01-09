@@ -13,6 +13,7 @@ ENV CHECKPOINT_DISABLE=true
 ENV TF_IN_AUTOMATION=true
 ENV TF_INPUT=false
 ENV TF_PLUGIN_CACHE_DIR=/usr/local/share/terraform/plugin-cache
+ENV TERRAFORM_VERSION=1.8.0
 
 RUN apt-get update  \
  && apt-get install --no-install-recommends -y \
@@ -32,7 +33,14 @@ RUN apt-get update  \
     gpg-agent \
     dirmngr \
     tree \
- && rm -rf /var/lib/apt/lists/*
+    bash \
+ 
+ && curl -O https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
+ && unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
+ && mv terraform /usr/local/bin/terraform \
+ && chmod +x /usr/local/bin/terraform \
+ && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+ 
 
 RUN mkdir -p $TF_PLUGIN_CACHE_DIR
 
